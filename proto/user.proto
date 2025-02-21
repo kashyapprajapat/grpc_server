@@ -2,7 +2,7 @@ syntax = "proto3";
 
 service Userservice{
     rpc addUser(User) returns (User) {} 
-    rpc addUsers(Empty) returns (Users){}
+    rpc getUsers(Empty) returns (Users){}
 }
 
 
