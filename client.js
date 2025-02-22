@@ -12,7 +12,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 
 const UserService = grpc.loadPackageDefinition(packageDefinition).Userservice;
 
-const client = new UserService("127.0.0.1:30043",
+const client = new UserService("grpc-server:30043",
     grpc.credentials.createInsecure()
 );
 

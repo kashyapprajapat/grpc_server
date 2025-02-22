@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 7777;
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 
-
+// Docs
 app.get("/", (req, res) => {
     res.send(`
         <!DOCTYPE html>
@@ -84,7 +84,7 @@ app.get("/", (req, res) => {
     `);
 });
 
-
+// Read
 app.get("/users",(req,res)=>{
     client.getUsers(null, (err,data)=>{
         if(!err){
@@ -98,7 +98,7 @@ app.get("/users",(req,res)=>{
     })
 });
 
-
+// Create
 app.post("/adduser",(req,res)=>{
     const newUser = req.body;
     client.addUser(newUser, (err,data)=>{
@@ -113,7 +113,7 @@ app.post("/adduser",(req,res)=>{
     })
 });
 
-
+// Update
 app.put("/updateuser", (req, res) => {
     const { email, newUser } = req.body;
 
@@ -127,6 +127,7 @@ app.put("/updateuser", (req, res) => {
     });
 });
 
+// Delete
 app.delete("/deleteuser", (req, res) => {
     const { email } = req.body;
 

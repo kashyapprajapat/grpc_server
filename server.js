@@ -66,11 +66,12 @@ server.addService(userProto.Userservice.service, {
     }
 });
 
-server.bindAsync("127.0.0.1:30043", grpc.ServerCredentials.createInsecure(), (error, port) => {
+server.bindAsync("0.0.0.0:30043", grpc.ServerCredentials.createInsecure(), (error, port) => {
     if (error) {
         console.error("Error binding server:", error);
         return;
     }
-    console.log(`Server running at http://127.0.0.1:${port}`);
+    console.log(`Server running at http://0.0.0.0:${port}`);
     server.start();
 });
+
