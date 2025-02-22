@@ -35,6 +35,34 @@ server.addService(userProto.Userservice.service, {
         const user = call.request;
         Users.push(user);
         callback(null, user);
+    },
+    updateUser: (call, callback) => {
+        const { email, newUser } = call.request;
+        const index = Users.findIndex(user => user.email === email);
+        
+        if (index === -1) {
+            return callback({
+                code: grpc.status.NOT_FOUND,
+                details: "User not found"
+            });
+        }
+
+        Users[index] = newUser; 
+        callback(null, newUser);
+    },
+    deleteUser: (call, callback) => {
+        const { email } = call.request;
+        const index = Users.findIndex(user => user.email === email);
+        
+        if (index === -1) {
+            return callback({
+                code: grpc.status.NOT_FOUND,
+                details: "User not found"
+            });
+        }
+
+        Users.splice(index, 1); 
+        callback(null, {});
     }
 });
 

@@ -16,7 +16,4 @@ const client = new UserService("127.0.0.1:30043",
     grpc.credentials.createInsecure()
 );
 
-
-export default client
-
-
+export default client;

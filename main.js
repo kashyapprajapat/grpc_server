@@ -36,6 +36,32 @@ app.post("/adduser",(req,res)=>{
 });
 
 
+app.put("/updateuser", (req, res) => {
+    const { email, newUser } = req.body;
+
+    client.updateUser({ email, newUser }, (err, data) => {
+        if (!err) {
+            res.send(`User ${email} updated successfully.`);
+        } else {
+            console.error(err);
+            res.status(500).send({ msg: err.details });
+        }
+    });
+});
+
+app.delete("/deleteuser", (req, res) => {
+    const { email } = req.body;
+
+    client.deleteUser({ email }, (err, data) => {
+        if (!err) {
+            res.send(`User ${email} deleted successfully.`);
+        } else {
+            console.error(err);
+            res.status(500).send({ msg: err.details });
+        }
+    });
+});
+
 app.listen(PORT,()=>{
     console.log(`Server is running at the port number ${PORT}`)
 })
