@@ -31,7 +31,7 @@ server.addService(userProto.Userservice.service, {
     getUsers: (_, callback) => {
         callback(null, { users: Users }); 
     },
-    addUsers: (call, callback) => {
+    addUser: (call, callback) => {  
         const user = call.request;
         Users.push(user);
         callback(null, user);

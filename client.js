@@ -17,6 +17,6 @@ const client = new UserService("127.0.0.1:30043",
 );
 
 
-module.exports = client
+export default client
 
 
