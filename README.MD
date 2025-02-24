@@ -108,6 +108,9 @@ This project is licensed under the **MIT License**.
 ---
 
 
+## RMI(Java 🍵) VS RPC
+![rmivsrpc](https://res.cloudinary.com/dpf5bkafv/image/upload/v1740398486/grpc/ea0skr746s8kj8fq3mtx.png) 
+
 
 
 
